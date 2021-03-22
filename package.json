@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "npx truffle develop",
+    "genSecret": "touch secrets.json && echo '{ \"alchemyApiKey\": \"alchemyApiKey\", \"mnemonic\": \"mnemonic\" }' > secrets.json",
+    "genWords": "npx mnemonics"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@openzeppelin/contracts": "^3.4.1"
+    "@openzeppelin/contracts": "^3.4.1",
+    "@truffle/hdwallet-provider": "^1.2.4"
   }
 }

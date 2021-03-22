@@ -23,6 +23,8 @@
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
+const { alchemyApiKey, mnemonic } = require('./secrets.json');
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
   /**
@@ -72,6 +74,14 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
+    rinkeby: {
+      provider: () => new HDWalletProvider(
+        mnemonic, `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`
+      ),
+      network_id: 4,
+      gasPrice: 10e9,
+      skipDryRun: true
+    }
   },
 
   // Set default mocha options here, use special reporters etc.
