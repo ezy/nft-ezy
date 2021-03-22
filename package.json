@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "npx truffle develop",
     "rinkeby": "npx truffle console --network rinkeby",
+    "ropsten": "npx truffle console --network ropsten",
     "genSecret": "touch secrets.json && echo '{ \"alchemyApiKey\": \"alchemyApiKey\", \"mnemonic\": \"mnemonic\" }' > secrets.json",
     "genWords": "npx mnemonics"
   },

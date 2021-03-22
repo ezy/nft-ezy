@@ -20,7 +20,7 @@
 
 // const infuraKey = "fj4jll3k.....";
 
-const { alchemyApiKey, mnemonic } = require('./secrets.json');
+const { alchemyApiKey, mnemonic, metaMaskMnemonic } = require('./secrets.json');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
@@ -81,6 +81,13 @@ module.exports = {
       confirmations: 2,    // # of confs to wait between deployments. (default: 0)
       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    ropsten: {
+      provider: function () {
+        return new HDWalletProvider(metaMaskMnemonic, `https://eth-ropsten.alchemyapi.io/v2/${alchemyApiKey}`)
+      },
+      network_id: 3,
+      gas: 4000000, //4M is the max
     }
   },
 
